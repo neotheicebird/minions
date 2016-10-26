@@ -3,7 +3,6 @@
 This is the minions chat bot. Chat with minions and get amused.
 """
 
-import os
 from slackclient import SlackClient
 import json
 import time
@@ -84,7 +83,6 @@ BOT_NAME = 'minions'
 
 with open("minion.json", "r") as minionlangfp:
     minionlang = json.load(minionlangfp)
-    # print(minionlang)
 
 # starterbot's ID as an environment variable
 BOT_ID = api_info["id"]
@@ -100,7 +98,6 @@ if __name__ == "__main__":
         print("StarterBot connected and running!")
         while True:
             message, channel = parse_slack_output(slack_client.rtm_read())
-            # print(message, channel)
             if message and channel:
                 handle_message(message, channel)
             time.sleep(READ_WEBSOCKET_DELAY)
